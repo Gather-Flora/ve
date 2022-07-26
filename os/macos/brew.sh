@@ -50,6 +50,7 @@ gnu-sed \
 gnu-tar \
 gzip \
 jq \
+libheif \
 libmaxminddb \
 libtool \
 make \
