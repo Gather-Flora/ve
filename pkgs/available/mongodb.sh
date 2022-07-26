@@ -14,6 +14,7 @@ if [ "$MOS" == "MacOS" ]; then
 
   getpkg https://fastdl.mongodb.org/osx/mongodb-macos-${MARCH}-${MONGODB_VERSION}.tgz $MONGODB_SHA256SUM
   tar zxf mongodb-macos-${MARCH}-${MONGODB_VERSION}.tgz
+  mv mongodb-macos-aarch64-${MONGODB_VERSION} mongodb-macos-${MARCH}-${MONGODB_VERSION} || true
   mv mongodb-macos-${MARCH}-${MONGODB_VERSION}/bin/* $VENV/bin/
 
   if [ "$MONGODB_TOOLS_SHA256SUM" != "" ]; then
