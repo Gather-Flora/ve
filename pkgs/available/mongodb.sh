@@ -1,5 +1,4 @@
 MONGODB_VERSION="6.0.0"
-MONGODB_TOOLS_VERSION="100.5.4"
 MONGODB_SHELL_VERSION="1.5.1"
 
 mkdir -p $VENV/bin
@@ -7,12 +6,10 @@ mkdir -p $VENV/bin
 if [ "$MOS" == "MacOS" ]; then
   if [ "$MARCH" == "arm64" ]; then
     MONGODB_SHA256SUM="aed3622e3854c85ae0de307802e593c91e5d8c59e497e659d8e42f7718db0ecb"
-    MONGODB_TOOLS_SHA256SUM=""
     MONGODB_SHELL_SHA256SUM="9a2673bc79c77508ea89321d530668be6325fffae5ef89c57c8f28f00abe5d00"
     MONGODB_SHELL_ARCH="$MARCH"
   else
     MONGODB_SHA256SUM="312fccb8bc0465104533ba42ed5641c27382fd03ca52f074fbd5bc8291d28512"
-    MONGODB_TOOLS_SHA256SUM="c69e2a361e49c3f6caf828441fee1c39de256134a36d7d003f3abdee49956625"
     MONGODB_SHELL_SHA256SUM="2b900c717c68d8c92b7e290a558ea584a0d3c10e25574821e846bc67b8aa7c29"
     MONGODB_SHELL_ARCH="x64"
   fi
@@ -21,12 +18,6 @@ if [ "$MOS" == "MacOS" ]; then
   tar zxf mongodb-macos-${MARCH}-${MONGODB_VERSION}.tgz
   mv mongodb-macos-aarch64-${MONGODB_VERSION} mongodb-macos-${MARCH}-${MONGODB_VERSION} || true
   mv mongodb-macos-${MARCH}-${MONGODB_VERSION}/bin/* $VENV/bin/
-
-  if [ "$MONGODB_TOOLS_SHA256SUM" != "" ]; then
-  getpkg https://fastdl.mongodb.org/tools/db/mongodb-database-tools-macos-${MARCH}-${MONGODB_TOOLS_VERSION}.zip $MONGODB_TOOLS_SHA256SUM
-  unzip mongodb-database-tools-macos-${MARCH}-${MONGODB_TOOLS_VERSION}.zip
-  mv mongodb-database-tools-macos-${MARCH}-${MONGODB_TOOLS_VERSION}/bin/* $VENV/bin/
-  fi
 
   getpkg https://downloads.mongodb.com/compass/mongosh-${MONGODB_SHELL_VERSION}-darwin-${MONGODB_SHELL_ARCH}.zip $MONGODB_SHELL_SHA256SUM
   unzip mongosh-${MONGODB_SHELL_VERSION}-darwin-${MONGODB_SHELL_ARCH}.zip
@@ -37,15 +28,17 @@ else
   tar zxf mongodb-linux-${MARCH}-ubuntu2004-${MONGODB_VERSION}.tgz
   mv mongodb-linux-${MARCH}-ubuntu2004-${MONGODB_VERSION}/bin/* $VENV/bin/
 
-  MONGODB_TOOLS_SHA256SUM="2263d59bde373a3ad20a3519da097ed3d5feff3cffae346a13d0f5a38d96e5c2"
-  getpkg https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2004-${MARCH}-${MONGODB_TOOLS_VERSION}.tgz $MONGODB_TOOLS_SHA256SUM
-  tar zxf mongodb-database-tools-ubuntu2004-${MARCH}-${MONGODB_TOOLS_VERSION}.tgz
-  mv mongodb-database-tools-ubuntu2004-${MARCH}-${MONGODB_TOOLS_VERSION}/bin/* $VENV/bin/
-
   MONGODB_SHELL_SHA256SUM="5be02937b574eaf3ce26789224b4129d159b53e24143ad5be8b38cedb318525d"
   getpkg https://downloads.mongodb.com/compass/mongosh-${MONGODB_SHELL_VERSION}-linux-x64-openssl11.tgz $MONGODB_SHELL_SHA256SUM
   tar zxf mongosh-${MONGODB_SHELL_VERSION}-linux-x64-openssl11.tgz
   mv mongosh-${MONGODB_SHELL_VERSION}-linux-x64-openssl11/bin/* $VENV/bin/
 fi
+
+# build tools from source (golang) - they don't provide a tools macos arm64
+# binary as of July 2022
+git clone https://github.com/mongodb/mongo-tools.git
+cd mongo-tools
+./make build
+cp bin/* $VENV/bin/
 
 rm -fr mongodb*
