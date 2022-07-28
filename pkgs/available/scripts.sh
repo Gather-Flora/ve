@@ -77,8 +77,8 @@ export PATH
 
 export AIRFLOW_HOME="$DATA_DIR/airflow"
 export NODE_PATH="\$VIRTUAL_ENV/lib/node_modules"
-#export PYTHONPATH="/foo/bar"
-export PYTHONPYCACHEPREFIX="/tmp/__ve_pycache__"
+export PYTHONPATH="/opt/gf/src"
+export PYTHONPYCACHEPREFIX="/tmp/__pycache__"
 export LD_LIBRARY_PATH="$VENV/lib:/usr/lib"
 
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
@@ -170,8 +170,8 @@ set -gx PATH "\$VIRTUAL_ENV/opt/go/bin" \$PATH
 
 set -gx AIRFLOW_HOME "$DATA_DIR/airflow"
 set -gx NODE_PATH "\$VIRTUAL_ENV/lib/node_modules"
-#set -gx PYTHONPATH "/foo/bar"
-set -gx PYTHONPYCACHEPREFIX "/tmp/__wve_pycache__"
+set -gx PYTHONPATH "/opt/gf/src"
+set -gx PYTHONPYCACHEPREFIX "/tmp/__pycache__"
 
 # Unset "\$PYTHONHOME" if set.
 if set -q PYTHONHOME
