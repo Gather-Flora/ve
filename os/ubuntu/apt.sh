@@ -48,6 +48,7 @@ texinfo \
 tmux \
 ufw \
 unzip \
+uuid-runtime \
 vim \
 wamerican \
 wget \
