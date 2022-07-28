@@ -24,3 +24,4 @@ mv go $VENV/opt/
 
 export GOROOT="$VENV/opt/go"
 export GOPATH="$BUILD_DIR/golang"
+export PATH="$GOROOT/bin:$PATH"
