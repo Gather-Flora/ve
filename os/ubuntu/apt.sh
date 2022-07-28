@@ -65,9 +65,11 @@ libfreetype6-dev \
 libgdal-dev \
 libgeos-dev \
 libgnutls28-dev \
+libgssapi-krb5-2 \
 libicu-dev \
 libjpeg-dev \
 libjson-c-dev \
+libkrb5-dev \
 libmaxminddb-dev \
 libncurses5-dev \
 libpango-1.0.0 \
