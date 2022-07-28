@@ -1,6 +1,6 @@
 GOLANG_VERSION="1.18.4"
 GOLANG_KERNEL="linux"
-GOLANG_ARCH="x86_64"
+GOLANG_ARCH="amd64"
 GOLANG_SHA256SUM="c9b099b68d93f5c5c8a8844a89f8db07eaa58270e3a1e01804f17f4cf8df02f5"
 
 if [ "$MOS" == "MacOS" ]; then
@@ -12,7 +12,7 @@ if [ "$MOS" == "MacOS" ]; then
   fi
 fi
 
-NAME="go${GOLANG_VERSION}.${GOLANG_KERNEL}-${MARCH}"
+NAME="go${GOLANG_VERSION}.${GOLANG_KERNEL}-${GOLANG_ARCH}"
 
 getpkg https://go.dev/dl/${NAME}.tar.gz $GOLANG_SHA256SUM
 tar zxf ${NAME}.tar.gz
