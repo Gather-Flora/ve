@@ -33,6 +33,7 @@ sendgrid
 sentry-sdk
 slack_sdk
 supervisor
+tzlocal
 websocket-client
 webtest
 whatimage
