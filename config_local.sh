@@ -12,7 +12,7 @@ RUN_DIR="/opt/gf/run"
 
 # remote rsync for push/pull
 RSYNC_USER="push"
-RSYNC_HOST="mattb.gatherflora.dev"
+RSYNC_HOST="netops.gatherflora.com"
 
 SUBPATH="$(echo $BUILDKITE_BRANCH | tr '/' '-')"
 if [ "$SUBPATH" == "" ]; then
