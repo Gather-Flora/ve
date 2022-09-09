@@ -38,7 +38,7 @@ fi
 # binary as of July 2022
 git clone https://github.com/mongodb/mongo-tools.git
 cd mongo-tools
-git checkout 100.5.4
+git checkout 510f92157330
 ./make build
 cp bin/* $VENV/bin/
 
