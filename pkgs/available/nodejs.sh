@@ -37,7 +37,7 @@ if [ "$MOS" == "MacOS" ]; then
 else
   NAME="node-v${NODEJS_VERSION}-${NODEJS_PLATFORM}-${NODEJS_ARCH}"
   getpkg https://nodejs.org/dist/v${NODEJS_VERSION}/${NAME}.tar.xz $NODEJS_SHA256SUM
-  tar jxf ${NAME}.tar.xz
+  tar Jxf ${NAME}.tar.xz
 fi
 
 rm -f $NAME/[A-Z]*
