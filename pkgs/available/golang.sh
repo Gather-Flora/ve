@@ -10,10 +10,10 @@ fi
 
 if [ "$MOS" == "MacOS" ]; then
   GOLANG_KERNEL="darwin"
-  GOLANG_SHA256SUM="d55c1c2b1d6fee6b5f63e07cd894a7f9369a3542d971701f8045e3a83bdb44fe"
+  GOLANG_SHA256SUM="05ef7855970fd9caf4e8d34fe73146cffcff740b80d00189d129302f13d22e6b"
   if [ "$MARCH" == "arm64" ]; then
     GOLANG_ARCH="arm64"
-    GOLANG_SHA256SUM="063cfbb2e3dec8e3b1cc79e0aaccb618f0139600c5d28b9a9ec8cf14086e61c4"
+    GOLANG_SHA256SUM="bbe22ae2f9d284b0decd67baf82a8ec840f31ca312915af1afba8adfa764e23c"
   fi
 fi
 
