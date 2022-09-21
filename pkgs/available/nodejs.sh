@@ -42,5 +42,5 @@ NAME="node-v${NODEJS_VERSION}-${NODEJS_PLATFORM}-${NODEJS_ARCH}"
 getpkg https://nodejs.org/dist/v${NODEJS_VERSION}/${NAME}.tar.gz $NODEJS_SHA256SUM
 tar zxf ${NAME}.tar.gz
 
-rm -f $NAME/[A-Z]*
+rm $NAME/CHANGELOG.md $NAME/LICENSE $NAME/README.md
 cp -r $NAME/* $VENV/
