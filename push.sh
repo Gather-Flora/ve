@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 pushd $(dirname $0) > /dev/null
 SCRIPTPATH="$(pwd)"
