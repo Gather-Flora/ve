@@ -1,5 +1,9 @@
 #!/bin/bash
 
+sudo tee /etc/needrestart/conf.d/10-supervisord.conf <<EOF
+\$nrconf{override_rc}{qr(^supervisord)} = 0;
+EOF
+
 unset UCF_FORCE_CONFFOLD
 export UCF_FORCE_CONFFNEW=YES
 sudo ucf --purge /boot/grub/menu.lst
