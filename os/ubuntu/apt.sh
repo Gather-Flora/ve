@@ -1,8 +1,10 @@
 #!/bin/bash
 
-sudo tee /etc/needrestart/conf.d/10-supervisord.conf <<EOF
+if [ -e /etc/needrestart/conf.d ]; then
+  sudo tee /etc/needrestart/conf.d/10-supervisord.conf <<EOF
 \$nrconf{override_rc}{qr(^supervisord)} = 0;
 EOF
+fi
 
 unset UCF_FORCE_CONFFOLD
 export UCF_FORCE_CONFFNEW=YES
