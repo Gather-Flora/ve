@@ -9,6 +9,7 @@ flake8
 flask
 gevent
 GitPython
+google-api-python-client
 gunicorn
 isort
 libnacl
@@ -16,6 +17,7 @@ linode-cli
 mako
 msgpack
 nose2
+oauth2client
 paypalrestsdk
 Pillow
 pillow-heif
