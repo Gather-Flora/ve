@@ -57,6 +57,7 @@ make \
 openssl \
 pkgconfig \
 rsync \
+texinfo \
 tmux \
 vim \
 wget \
