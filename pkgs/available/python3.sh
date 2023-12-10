@@ -11,4 +11,5 @@ make install
 cd $BUILD_DIR
 
 $VENV/bin/pip3 install -U pip
+$VENV/bin/pip3 cache purge
 $VENV/bin/pip3 install -r ${SCRIPTPATH}/pkgs/available/python3-requirements.txt --src $VENV/src
