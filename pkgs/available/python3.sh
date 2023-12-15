@@ -10,6 +10,7 @@ make install
 
 cd $BUILD_DIR
 
+PIP_OPTS="--no-user --no-cache-dir"
+
 $VENV/bin/pip3 install -U pip
-$VENV/bin/pip3 cache purge
-$VENV/bin/pip3 install -r ${SCRIPTPATH}/pkgs/available/python3-requirements.txt --src $VENV/src
+$VENV/bin/pip3 install $PIP_OPTS -r ${SCRIPTPATH}/pkgs/available/python3-requirements.txt --src $VENV/src
