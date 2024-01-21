@@ -2,7 +2,7 @@ OPENSSL_VERSION="1.1.1q"
 OPENSSL_SHA256SUM="d7939ce614029cdff0b6c20f0e2e5703158a489a72b2507b8bd51bf8c8fd10ca"
 
 rm -fR openssl*
-getpkg https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz $OPENSSL_SHA256SUM
+getpkg https://www.openssl.org/source/old/1.1.1/openssl-${OPENSSL_VERSION}.tar.gz $OPENSSL_SHA256SUM
 tar zxf openssl-${OPENSSL_VERSION}.tar.gz
 cd openssl-${OPENSSL_VERSION}
 
