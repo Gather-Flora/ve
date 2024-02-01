@@ -226,6 +226,7 @@ requests==2.27.1
     #   google-api-core
     #   linode-cli
     #   paypalrestsdk
+    #   stripe
 rq==1.10.1
     # via -r python3-requirements.in
 rsa==4.7.2
@@ -258,6 +259,8 @@ soupsieve==2.3.2.post1
     # via beautifulsoup4
 starkbank-ecdsa==2.0.3
     # via sendgrid
+stripe==7.0.0
+    # via -r python3-requirements.in
 supervisor==4.2.4
     # via -r python3-requirements.in
 terminaltables==3.1.10
@@ -276,6 +279,7 @@ typing-extensions==4.3.0
     #   astroid
     #   black
     #   pylint
+    #   stripe
 tzdata==2022.1
     # via pytz-deprecation-shim
 tzlocal==4.2
