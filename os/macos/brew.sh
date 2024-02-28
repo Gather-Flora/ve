@@ -49,6 +49,7 @@ git \
 gnu-sed \
 gnu-tar \
 gzip \
+icu4c \
 jq \
 libheif \
 libmaxminddb \
