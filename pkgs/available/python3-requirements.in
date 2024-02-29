@@ -23,6 +23,7 @@ Pillow
 pillow-heif
 pip-tools
 pre-commit
+psycopg2
 pylint
 pymongo
 pynacl
