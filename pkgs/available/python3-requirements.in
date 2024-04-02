@@ -1,12 +1,12 @@
 authlib==0.15.5
 awscli
-blinker
 black
 boto
 boto3
 Click
 flake8
 flask
+freezegun
 gevent
 GitPython
 google-api-python-client
@@ -27,7 +27,6 @@ psycopg2
 pylint
 pymongo
 pynacl
-python-dotenv
 pytz
 redis
 requests

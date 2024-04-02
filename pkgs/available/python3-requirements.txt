@@ -16,8 +16,6 @@ beautifulsoup4==4.11.1
     # via webtest
 black==22.6.0
     # via -r python3-requirements.in
-blinker==1.4
-    # via -r python3-requirements.in
 boto==2.49.0
     # via -r python3-requirements.in
 boto3==1.21.38
@@ -72,6 +70,8 @@ filelock==3.6.0
 flake8==4.0.1
     # via -r python3-requirements.in
 flask==2.1.1
+    # via -r python3-requirements.in
+freezegun==1.4.0
     # via -r python3-requirements.in
 gevent==23.9.1
     # via -r python3-requirements.in
@@ -204,9 +204,9 @@ pyparsing==3.0.8
     #   httplib2
     #   packaging
 python-dateutil==2.8.2
-    # via botocore
-python-dotenv==0.20.0
-    # via -r python3-requirements.in
+    # via
+    #   botocore
+    #   freezegun
 python-http-client==3.3.7
     # via sendgrid
 pytz==2022.1
