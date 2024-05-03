@@ -253,7 +253,7 @@ six==1.16.0
     #   paypalrestsdk
     #   python-dateutil
     #   virtualenv
-slack-sdk==3.18.1
+slack-sdk==3.27.1
     # via -r python3-requirements.in
 smmap==5.0.0
     # via gitdb
