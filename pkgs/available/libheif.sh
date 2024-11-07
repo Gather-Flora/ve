@@ -6,5 +6,6 @@ tar zxf libheif-${LIBHEIF_VERSION}.tar.gz
 cd libheif-${LIBHEIF_VERSION}
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX:PATH=$VENV --preset=release ..
+#-DCMAKE_MACOSX_RPATH="ON" -DCMAKE_INSTALL_RPATH="$VENV/lib"
+cmake -DCMAKE_INSTALL_PREFIX="$VENV" --preset=release ..
 make all install

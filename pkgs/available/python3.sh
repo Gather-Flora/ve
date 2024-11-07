@@ -14,3 +14,10 @@ PIP_OPTS="--no-user --no-cache-dir --src $VENV/src"
 
 $VENV/bin/pip3 install -U pip
 $VENV/bin/pip install $PIP_OPTS -r ${SCRIPTPATH}/pkgs/available/python3-requirements.txt
+
+# Fix pillow_heif to use our own heif lib - on linux they bundle all these
+# libs, not sure why not on macos...
+if [ "$MOS" == "MacOS" ]; then
+  install_name_tool -change @rpath/libheif.1.dylib $VENV/lib/libheif.1.dylib \
+    /opt/gf/ve/lib/python3.11/site-packages/_pillow_heif.cpython-311-darwin.so
+fi
