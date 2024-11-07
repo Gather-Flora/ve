@@ -12,5 +12,5 @@ cd $BUILD_DIR
 
 PIP_OPTS="--no-user --no-cache-dir --src $VENV/src"
 
-$VENV/bin/pip install -U pip
+$VENV/bin/pip3 install -U pip
 $VENV/bin/pip install $PIP_OPTS -r ${SCRIPTPATH}/pkgs/available/python3-requirements.txt
