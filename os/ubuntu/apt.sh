@@ -1,5 +1,9 @@
 #!/bin/bash
 
+APT_GET='sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::Lock::Timeout=120 -o Dpkg::Options::=--force-confnew'
+INSTALL='--fix-broken --auto-remove install'
+UPGRADE='--with-new-pkgs upgrade'
+
 if [ -e /etc/needrestart/conf.d ]; then
   sudo tee /etc/needrestart/conf.d/10-supervisord.conf <<EOF
 \$nrconf{override_rc}{qr(^supervisord)} = 0;
@@ -10,30 +14,39 @@ unset UCF_FORCE_CONFFOLD
 export UCF_FORCE_CONFFNEW=YES
 sudo ucf --purge /boot/grub/menu.lst
 
-sudo apt install -y software-properties-common
-sudo apt-add-repository -y multiverse
-sudo apt-get update
-sudo DEBIAN_FRONTEND=noninteractive apt-get -fuy --force-yes -o Dpkg::Options::="--force-confnew" upgrade
+$APT_GET update
+$APT_GET $INSTALL software-properties-common apt-transport-https ca-certificates gnupg curl
 
-sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
+sudo apt-add-repository -y multiverse
+
+$APT_GET update
+$APT_GET $UPGRADE
+
+$APT_GET $INSTALL \
 acpid \
+apt-transport-https \
 atop \
 autoconf \
 automake \
 bison \
 build-essential \
+ca-certificates \
+cargo \
 cmake \
 cowsay \
 curl \
 default-jre-headless \
 dnsutils \
 expect \
+ffmpeg \
 fortune \
 g++ \
 gcc \
 gettext \
 gfortran \
-git-core \
+git \
+git-lfs \
+gnupg \
 jq \
 libtool \
 locales \
@@ -42,6 +55,7 @@ make \
 man-db \
 ntp \
 numactl \
+patchelf \
 pigz \
 pkg-config \
 psmisc \
@@ -54,7 +68,6 @@ texinfo \
 tmux \
 ufw \
 unzip \
-uuid-runtime \
 vim \
 wamerican \
 wget \
@@ -66,19 +79,21 @@ libatlas-base-dev \
 libbz2-dev \
 libcairo2-dev \
 libcurl4-openssl-dev \
+libegl1 \
 libevent-dev \
 libffi-dev \
 libfreetype6-dev \
 libgdal-dev \
 libgeos-dev \
 libgnutls28-dev \
-libgssapi-krb5-2 \
 libicu-dev \
 libjpeg-dev \
 libjson-c-dev \
-libkrb5-dev \
+liblwp-useragent-determined-perl \
+liblzma-dev \
 libmaxminddb-dev \
 libncurses5-dev \
+libncursesw5-dev \
 libpango-1.0.0 \
 libpangocairo-1.0-0 \
 libpcap-dev \
@@ -86,14 +101,17 @@ libpcre3-dev \
 libperl-dev \
 libpng-dev \
 libproj-dev \
-libreadline-dev \
 libreadline8 \
+libreadline-dev \
 libsodium-dev \
-libssl-dev \
 libsqlite3-dev \
+libssl-dev \
 libuuid1 \
 libwebp-dev \
 libxml2-dev \
+libxmlsec1-dev \
+libyaml-dev \
+tk-dev \
 uuid-dev \
 zlib1g-dev
 

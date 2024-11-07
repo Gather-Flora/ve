@@ -54,8 +54,10 @@ jq \
 libheif \
 libmaxminddb \
 libtool \
+libyaml \
 make \
 openssl \
+pcre \
 pkgconfig \
 rsync \
 texinfo \
