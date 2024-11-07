@@ -80,6 +80,7 @@ libbz2-dev \
 libcairo2-dev \
 libcurl4-openssl-dev \
 libegl1 \
+libde265-dev \
 libevent-dev \
 libffi-dev \
 libfreetype6-dev \
@@ -108,6 +109,7 @@ libsqlite3-dev \
 libssl-dev \
 libuuid1 \
 libwebp-dev \
+libx265-dev \
 libxml2-dev \
 libxmlsec1-dev \
 libyaml-dev \
