@@ -6,6 +6,5 @@ tar zxf libheif-${LIBHEIF_VERSION}.tar.gz
 cd libheif-${LIBHEIF_VERSION}
 mkdir build
 cd build
-CMAKE_INSTALL_PREFIX=$VENV cmake --preset=release ..
-make
-make install
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$VENV --preset=release ..
+make all install
