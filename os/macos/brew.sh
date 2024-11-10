@@ -51,17 +51,21 @@ gnu-tar \
 gzip \
 icu4c \
 jq \
-libheif \
+libde265 \
+libjpeg \
 libmaxminddb \
 libtool \
+libyaml \
 make \
 openssl \
-pkgconfig \
+pcre \
+pkg-config \
 rsync \
 texinfo \
 tmux \
 vim \
 wget \
+x265 \
 xz
 
 # clang doesn't like arguments it doesn't use

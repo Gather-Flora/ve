@@ -1,4 +1,4 @@
-authlib==0.15.5
+authlib
 awscli
 black
 boto
