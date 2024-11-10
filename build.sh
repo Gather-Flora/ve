@@ -30,7 +30,7 @@ if [ "$1" == "--nodeps" ]; then
   shift
 else
   echo "$(date) Installing dependencies..." | tee -a $VENV/build.log
-  source $SCRIPTPATH/deps.sh &>> $VENV/build.log
+  source $SCRIPTPATH/deps.sh 2>&1 >> $VENV/build.log
   echo "$(date) Finished dependencies." | tee -a $VENV/build.log
 fi
 
@@ -61,7 +61,7 @@ else
     pkg="$(basename $f)"
     pkg="${pkg%*.sh}"
     echo "$(date) Building $pkg ..." | tee -a $VENV/build.log
-    source $f &>> $VENV/build.log
+    source $f 2>&1 >> $VENV/build.log
     echo "$(date) Finished $pkg" | tee -a $VENV/build.log
   done
 
@@ -83,11 +83,11 @@ find $VENV -type f -perm -100 ! -perm -001 -print0 | xargs -0 -n 100 chmod ag+x 
 
 echo "System Link Report:" >> $VENV/build.log
 if [ "$MOS" == "MacOS" ]; then
-  otool -L $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep "executable ${MARCH}" | awk -F : '{print $1}' | awk '{print $1}') | egrep -v ':$' | awk '{print $1}' | sort | uniq -c | sort -k1n &>> $VENV/build.log
+  otool -L $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep "executable ${MARCH}" | awk -F : '{print $1}' | awk '{print $1}') | egrep -v ':$' | awk '{print $1}' | sort | uniq -c | sort -k1n 2>&1 >> $VENV/build.log
 else
-  /usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'dynamically linked' | awk -F : '{print $1}' | xargs -n 1 ldd | grep '=>' | awk '{print $1, $2, $3}' | sort | uniq -c | sort -k1n &>> $VENV/build.log
+  /usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'dynamically linked' | awk -F : '{print $1}' | xargs -n 1 ldd | grep '=>' | awk '{print $1, $2, $3}' | sort | uniq -c | sort -k1n 2>&1 >> $VENV/build.log
 fi
 
-du -h -s $VENV &>> $VENV/build.log
+du -h -s $VENV 2>&1 >> $VENV/build.log
 
 grep -A 1000 "System Link Report:" $VENV/build.log
