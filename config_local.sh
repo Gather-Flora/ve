@@ -1,6 +1,9 @@
 # install prefix
 VENV="/opt/gf/ve"
 
+# Unit to ignore in needsrestart
+SYSTEMD_UNIT="supervisord"
+
 # cache package downloads
 PKG_CACHE="/tmp/venv-pkg"
 

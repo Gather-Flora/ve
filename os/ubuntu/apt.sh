@@ -5,8 +5,8 @@ INSTALL='--fix-broken --auto-remove install'
 UPGRADE='--with-new-pkgs upgrade'
 
 if [ -e /etc/needrestart/conf.d ]; then
-  sudo tee /etc/needrestart/conf.d/10-supervisord.conf <<EOF
-\$nrconf{override_rc}{qr(^supervisord)} = 0;
+  sudo tee /etc/needrestart/conf.d/10-$SYSTEMD_UNIT.conf <<EOF
+\$nrconf{override_rc}{qr(^$SYSTEMD_UNIT)} = 0;
 EOF
 fi
 
@@ -16,6 +16,10 @@ sudo ucf --purge /boot/grub/menu.lst
 
 $APT_GET update
 $APT_GET $INSTALL software-properties-common apt-transport-https ca-certificates gnupg curl
+
+if [ "$BUILD_DIR" != "" ]; then
+  $APT_GET $INSTALL ccache
+fi
 
 sudo apt-add-repository -y multiverse
 

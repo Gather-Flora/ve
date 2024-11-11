@@ -68,6 +68,10 @@ wget \
 x265 \
 xz
 
+if [ "$BUILD_DIR" != "" ]; then
+  $BREW install ccache
+fi
+
 # clang doesn't like arguments it doesn't use
 #export CFLAGS="-Qunused-arguments $CFLAGS"
 
