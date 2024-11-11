@@ -91,6 +91,7 @@ libfreetype6-dev \
 libgdal-dev \
 libgeos-dev \
 libgnutls28-dev \
+libheif-dev \
 libicu-dev \
 libjpeg-dev \
 libjson-c-dev \
