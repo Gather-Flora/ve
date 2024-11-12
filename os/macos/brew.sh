@@ -52,6 +52,7 @@ gzip \
 icu4c \
 jq \
 libde265 \
+libheif \
 libjpeg \
 libmaxminddb \
 libtool \
