@@ -14,3 +14,7 @@ PIP_OPTS="--no-user --no-cache-dir --src $VENV/src"
 
 $VENV/bin/pip3 install -U pip
 $VENV/bin/pip install $PIP_OPTS -r ${SCRIPTPATH}/pkgs/available/python3-requirements.txt
+
+# hack, regression in werkzeug ImmutableMultiDict, take the latest as of
+# 11/22/2024, can remove after 3.2.0
+$VENV/bin/pip install git+https://github.com/pallets/werkzeug.git@7868bef5d978093a8baa0
