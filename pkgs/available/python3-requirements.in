@@ -38,6 +38,7 @@ slack_sdk
 stripe
 supervisor
 tzlocal
+us
 vcrpy
 websocket-client
 webtest
