@@ -179,6 +179,8 @@ pillow==11.0.0
     # via
     #   -r python3-requirements.in
     #   pillow-heif
+pillow-avif-plugin==1.5.2
+    # via -r python3-requirements.in
 pillow-heif==0.20.0
     # via -r python3-requirements.in
 pip-tools==7.4.1
