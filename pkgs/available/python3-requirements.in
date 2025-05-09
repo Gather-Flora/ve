@@ -20,6 +20,7 @@ nose2
 oauth2client
 paypalrestsdk
 Pillow
+pillow-avif-plugin
 pillow-heif
 pip-tools
 pre-commit
