@@ -1,13 +1,28 @@
-MONGODB_VERSION="7.0.15"
-MONGODB_SHELL_VERSION="2.3.3"
-MONGODB_TOOLS_VERSION="100.10.0"
+MONGODB_VERSION="7.0.20"
+MONGODB_SHELL_VERSION="2.5.0"
+MONGODB_TOOLS_VERSION="100.12.0"
+
+if false; then
+MARCH="arm64"
+echo MONGODB_SHA256SUM="$(curl -s -L https://fastdl.mongodb.org/osx/mongodb-macos-${MARCH}-${MONGODB_VERSION}.tgz | sha256sum | awk '{print $1}')"
+echo MONGODB_SHELL_SHA256SUM="$(curl -s -L https://downloads.mongodb.com/compass/mongosh-${MONGODB_SHELL_VERSION}-darwin-${MARCH}.zip | sha256sum | awk '{print $1}')"
+echo MONGODB_TOOLS_SHA256SUM="$(curl -s -L https://fastdl.mongodb.org/tools/db/mongodb-database-tools-macos-${MARCH}-${MONGODB_TOOLS_VERSION}.zip | sha256sum | awk '{print $1}')"
+
+echo
+
+MARCH="x86_64"
+echo MONGODB_SHA256SUM="$(curl -s -L https://fastdl.mongodb.org/linux/mongodb-linux-${MARCH}-ubuntu2204-${MONGODB_VERSION}.tgz | sha256sum | awk '{print $1}')"
+echo MONGODB_SHELL_SHA256SUM="$(curl -s -L https://downloads.mongodb.com/compass/mongosh-${MONGODB_SHELL_VERSION}-linux-x64.tgz | sha256sum | awk '{print $1}')"
+echo MONGODB_TOOLS_SHA256SUM="$(curl -s -L https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-${MARCH}-${MONGODB_TOOLS_VERSION}.tgz | sha256sum | awk '{print $1}')"
+exit 0
+fi
 
 mkdir -p $VENV/bin
 
 if [ "$MOS" == "MacOS" ]; then
-  MONGODB_SHA256SUM="aac0251a1e04df037db2e072d29558ceb8d1af5473c55a16a0120b32218bf0a6"
-  MONGODB_SHELL_SHA256SUM="980d186a555d96d49e6e5662caf103603a39a00f549a10fd85e2e9eace692934"
-  MONGODB_TOOLS_SHA256SUM="946177e469ef8744bd36aa38809926beb3c97a56e4c1d637dc052a1f18f57515"
+  MONGODB_SHA256SUM="fc86aed6f9c9f5f35d6bd523968bf6ebfb3167728f64c4f98092fd351d0fd534"
+  MONGODB_SHELL_SHA256SUM="7f803a0d0be9c03c57b9c4641824b7f649003dd27c94e6d075903ef7b8c4ea14"
+  MONGODB_TOOLS_SHA256SUM="85ccf826976638e48844d929f60d2e6d91f8b7e5100ee74b19e045c4d1e828f3"
 
   getpkg https://fastdl.mongodb.org/osx/mongodb-macos-${MARCH}-${MONGODB_VERSION}.tgz $MONGODB_SHA256SUM
   tar zxf mongodb-macos-${MARCH}-${MONGODB_VERSION}.tgz
@@ -22,9 +37,9 @@ if [ "$MOS" == "MacOS" ]; then
   unzip mongodb-database-tools-macos-${MARCH}-${MONGODB_TOOLS_VERSION}.zip
   mv mongodb-database-tools-macos-${MARCH}-${MONGODB_TOOLS_VERSION}/bin/* $VENV/bin/
 else
-  MONGODB_SHA256SUM="fe50510ccb15bae08f35aae83aba736bd8eaa288b9a2e573b9ac761017a4e18b"
-  MONGODB_SHELL_SHA256SUM="eb2583a750c1dda8eedc80577fb47d611c673e2482e5c39b282d979533671bf0"
-  MONGODB_TOOLS_SHA256SUM="e92ef9448aeb347216f253ca3cd34ef5490102d4c6269353c799f51b69206e4a"
+  MONGODB_SHA256SUM="7ed90600c5cf17d870c397652072df714e3d7023edfdde384b75cba57c1af16c"
+  MONGODB_SHELL_SHA256SUM="d1dfc44f2b4de11c2b66994715c00bcf26eea0e29a763195c2420b262bf38f00"
+  MONGODB_TOOLS_SHA256SUM="426cc14f6d2247284d557d61eb3e9d4bd4f19943a15e7ffb38354008a0cf3892"
 
   getpkg https://fastdl.mongodb.org/linux/mongodb-linux-${MARCH}-ubuntu2204-${MONGODB_VERSION}.tgz $MONGODB_SHA256SUM
   tar zxf mongodb-linux-${MARCH}-ubuntu2204-${MONGODB_VERSION}.tgz
