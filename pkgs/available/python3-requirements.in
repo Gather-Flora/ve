@@ -17,8 +17,10 @@ linode-cli
 mako
 msgpack
 nose2
+numpy
 oauth2client
 paypalrestsdk
+pandas
 Pillow
 pillow-avif-plugin
 pillow-heif
