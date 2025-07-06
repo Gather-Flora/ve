@@ -17,5 +17,5 @@ cd $BUILD_DIR
 getpkg https://github.com/strukturag/libde265/releases/download/v${LIBDE265_VERSION}/libde265-${LIBDE265_VERSION}.tar.gz $LIBDE265_SHA256SUM
 tar zxf libde265-${LIBDE265_VERSION}.tar.gz
 cd libde265-${LIBDE265_VERSION}
-./configure --prefix=$VENV
+./configure --prefix=$VENV --disable-arm
 make install
