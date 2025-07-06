@@ -26,6 +26,8 @@ sudo apt-add-repository -y multiverse
 $APT_GET update
 $APT_GET $UPGRADE
 
+$APT_GET remove libheif-dev libde265-dev || true
+
 $APT_GET $INSTALL \
 acpid \
 apt-transport-https \
@@ -84,14 +86,12 @@ libbz2-dev \
 libcairo2-dev \
 libcurl4-openssl-dev \
 libegl1 \
-libde265-dev \
 libevent-dev \
 libffi-dev \
 libfreetype6-dev \
 libgdal-dev \
 libgeos-dev \
 libgnutls28-dev \
-libheif-dev \
 libicu-dev \
 libjpeg-dev \
 libjson-c-dev \

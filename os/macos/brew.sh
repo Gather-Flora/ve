@@ -32,6 +32,8 @@ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer || true
 $BREW update
 $BREW upgrade
 
+$BREW uninstall libheif libde265 || true
+
 $BREW install \
 autoconf \
 automake \
@@ -51,8 +53,6 @@ gnu-tar \
 gzip \
 icu4c \
 jq \
-libde265 \
-libheif \
 libjpeg \
 libmaxminddb \
 libtool \
