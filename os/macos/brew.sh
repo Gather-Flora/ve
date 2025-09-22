@@ -30,7 +30,7 @@ sudo xcodebuild -license accept || true
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer || true
 
 $BREW update
-$BREW upgrade
+$BREW upgrade || true
 
 $BREW uninstall libheif libde265 || true
 
