@@ -181,15 +181,15 @@ pathspec==0.12.1
     # via black
 paypalrestsdk==1.13.3
     # via -r python3-requirements.in
-pillow==11.0.0
+pillow==12.0.0
     # via
     #   -r python3-requirements.in
     #   pillow-heif
 pillow-avif-plugin==1.5.2
     # via -r python3-requirements.in
-pillow-heif==0.22.0
+pillow-heif==1.1.1
     # via -r python3-requirements.in
-pip-tools==7.4.1
+pip-tools==7.5.2
     # via -r python3-requirements.in
 platformdirs==4.3.6
     # via
